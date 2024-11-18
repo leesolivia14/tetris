@@ -12,8 +12,11 @@ clock = pygame.time.Clock()
 
 game = Game()
 
+GAME_UPDATE = pygame.USEREVENT # creating custom events 
+pygame.time.set_timer(GAME_UPDATE, 200) # ensuring that the game updates block position every 200 ms and not 60 times per sec
+
 # get all the events that pygame recognizes
-while True:
+while True: # game loop is 60 fps and it loops 60 times per second
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             pygame.quit()
@@ -24,7 +27,9 @@ while True:
             if event.key == pygame.K_RIGHT:
                 game.move_right()
             if event.key == pygame.K_UP:
-                game.rotate()        
+                game.rotate()       
+        if event.type == GAME_UPDATE:
+            game.move_down() # update block position when it has to not just when the loop executes
     # Drawing
     screen.fill(dark_blue)
     game.draw(screen)
