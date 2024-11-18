@@ -24,9 +24,7 @@ while True:
             if event.key == pygame.K_RIGHT:
                 game.move_right()
             if event.key == pygame.K_UP:
-                game.move_up()
-            if event.key == pygame.K_DOWN:
-                game.move_down()            
+                game.rotate()        
     # Drawing
     screen.fill(dark_blue)
     game.draw(screen)
