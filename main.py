@@ -2,10 +2,13 @@ import pygame, sys
 from game import Game
 
 pygame.init()
+
+title_font = pygame.font.Font(None, 40)
+
 dark_blue = (44, 44, 127)
 
 # creates a display surface object called screen. the game window!
-screen = pygame.display.set_mode((300, 600))
+screen = pygame.display.set_mode((500, 620))
 pygame.display.set_caption("Python Tetris")
 
 clock = pygame.time.Clock()
